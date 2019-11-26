@@ -66,10 +66,10 @@ def download_news_video_and_content(
 
     text = soupify(article_contents[0].text).get_text() # remove <div>
 
-    with open(original_text_path, "w") as f:
+    with open(original_text_path, "w", -1, 'utf-8') as f:
         f.write(text)
 
-    with open(text_path, "w") as f:
+    with open(text_path, "w", -1, 'utf-8') as f:
         from nltk import sent_tokenize
 
         text = re.sub(r'\[.{0,80} :\s.+]', '', text) # remove quote
